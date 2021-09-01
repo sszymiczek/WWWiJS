@@ -1,0 +1,56 @@
+<div class="card" id="my-list">
+    <div class="card-header">
+        <h4>Your Funny Pictures from the Internet (or your computer)</h4>
+    </div>
+    <div class="card-body fpfti-template"></div>
+    <nav id="pagination">
+        <ul class="pagination justify-content-center"></ul>
+    </nav>
+</div>
+<script>
+    insert_pagination();
+
+    function findGetParameter(parameterName) {
+        var result = null;
+            tmp = [];
+        location.search.substr(1).split("&").forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+        return result;
+    }
+
+    var cnt = findGetParameter('content');
+    if(cnt === null || cnt == "added") {
+        $.ajax({
+        url: "https://s113.labagh.pl/backend/api/fpfti/read_user_fpfti.php",
+        type: "GET",
+        dataType : "text",
+        })
+        .done(function(json) {
+            var tablica_json = JSON.parse(json);
+            jQuery.each(tablica_json.data, function() {
+                template(this.link, this.user_id, this.title, this.id, this.likes, ".fpfti-template");
+            });
+        })
+        .fail(function( xhr, status, errorThrown ) {
+            alert("Data not found");
+        });
+    } else if(cnt == "favourite") {
+        $(".fpfti-template").add("");
+        $.ajax({
+        url: "https://s113.labagh.pl/backend/api/fpfti/read_user_favourites.php",
+        type: "GET",
+        dataType : "text",
+        })
+        .done(function(json) {
+            var tablica_json = JSON.parse(json);
+            jQuery.each(tablica_json.data, function() {
+                template(this.link, this.user_id, this.title, this.id, this.likes, ".fpfti-template");
+            });
+        })
+        .fail(function( xhr, status, errorThrown ) {
+            alert("Data not found");
+        });
+    }
+</script>

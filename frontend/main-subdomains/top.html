@@ -1,0 +1,17 @@
+<div class="fpfti-template"></div>
+<script>
+    $.ajax({
+        url: "https://s113.labagh.pl/backend/api/fpfti/read_top10.php",
+        type: "GET",
+        dataType : "text",
+    })
+    .done(function(json) {
+        var tablica_json = JSON.parse(json);
+        jQuery.each(tablica_json.data, function() {
+            template(this.link, this.user_id, this.title, this.id, this.likes, ".fpfti-template");
+        });
+    })
+    .fail(function(xhr, status, errorThrown) {
+        alert("Data not found");
+    });
+</script>

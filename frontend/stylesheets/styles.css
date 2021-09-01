@@ -1,0 +1,91 @@
+html body {
+    background-color: #252422;
+    color: white;
+}
+
+.plain-text {
+    color: #151514;
+}
+
+.card{
+    margin-top: 10px;
+}
+
+.card .card-header {
+    background-color: #391405;
+}
+
+.card a {
+    color: #FFFCF2;
+    text-decoration: none;
+}
+
+.card a:hover {
+    color: white;
+}
+
+.card .card-body {
+    background-color: #CCC5B9;
+}
+
+.container {
+    background-color: #868179;
+    padding: 10px;
+}
+
+.setting {
+    background-color: inherit;
+}
+
+nav .pagination .page-item .page-link {
+    margin-top: 10px;
+    background-color: #403D39;
+    color: wheat;
+}
+
+#login-form *,  #register-form * {
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+.my-label {
+    border: 3px solid #6A6761;
+    border-radius: 5px;
+    background-color: #949089;
+}
+
+.comment-properties {
+    font-weight: bold
+}
+
+#info{
+    background-color: inherit;
+}
+
+#my-list {
+    background-color: #8E635F;
+}
+
+#logout-form {
+    padding: 0px 5px 0 5px;
+}
+
+.search-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+}
+
+.delacc {
+    background-color: black;
+}
+
+.like-form {
+    padding-left: 0 !important;
+}
+.back{
+    background-color: #CCC5B9;
+}

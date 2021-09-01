@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-header">
+        Your Information
+    </div>
+    <div class="card-body">
+        <div class="container" id="info">
+            <div class="row">
+                <div class="col">
+                    Login
+                </div>
+                <div class="col insert">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Name
+                </div>
+                <div class="col insert">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Age
+                </div>
+                <div class="col insert">
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark" href="https://s113.labagh.pl/index.html?page=settings">Settings</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var id = getJSessionId();
+    var link = 'https://s113.labagh.pl/backend/api/fpfti/read_profile.php?user_id=' + id + '';
+    var table = $(".insert");
+    $.ajax({
+        url: link,
+        type: "GET",
+        dataType : "text",
+    })
+    .done(function(json) {
+        var tablica_json = JSON.parse(json);
+        jQuery.each(tablica_json.data, function() {
+            table[0].append(this.login);
+            table[1].append(this.name);
+            table[2].append(this.age);
+        });
+    })
+    .fail(function( xhr, status, errorThrown ) {
+        alert("Data not found");
+    });
+
+    actionButtons();
+    activeColor();
+    $("#info").children().each(function() {
+        this.className += " plain-text";
+    });
+</script>

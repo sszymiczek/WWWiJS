@@ -1,0 +1,44 @@
+<div class="fpfti-template"></div>
+<div class="card comments"></div>
+<script>
+    function getContent(argument) {
+        var content = window.location.search;
+        const urlParams = new URLSearchParams(content);
+        const page_type = urlParams.get(argument);
+        return page_type;
+    }
+    var pic = getContent("pic");
+    var op = getContent("op");
+    var title = getContent("title");
+    var like = getContent("likeCount");
+    var id = getContent("id");
+    
+    template_id(id);
+    var curr = getJSessionId();
+    
+    var link = 'https://s113.labagh.pl/backend/api/fpfti/read_fpfti_comments.php?fpfti_id=' + id + '';
+    $.ajax({
+        url: link,
+        type: "GET",
+        dataType : "text",
+    })
+    .done(function(json) {
+
+        var tablica_json = JSON.parse(json);
+        var item = tablica_json.data.shift();
+        adder(item);
+        jQuery.each(tablica_json.data, function() {
+            comtemplate(this.user_id, this.text, this.id, id);
+            
+        });
+        addDelButton();
+        $(".info").children().each(function(){
+            this.className += " plain-text";
+        });
+    })
+    .fail(function(xhr, status, errorThrown) {
+        alert("Data not found");
+    });
+
+    
+</script>

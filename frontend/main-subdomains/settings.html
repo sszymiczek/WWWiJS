@@ -1,0 +1,79 @@
+<div class="card">
+    <div class="card-header">
+        Personal settings
+    </div>
+    <div class="card-body">
+        <form action="https://s113.labagh.pl/backend/userchange.php" class="d-flex settings" method="POST">
+            <div class="container setting" id="info">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="fname" class="form-label">Type name</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="fname">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="passwd" class="form-label">Type new password</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" name="fpassword">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="passwd2" class="form-label">Retype new password</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" name="fpassword2">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="age" class="form-label">Type your age</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="age">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="g-recaptcha" data-sitekey="6LcrreYUAAAAAGeERM9Etdv8wlh81RCSK0LXuwfX"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="d-grid gap-2">
+                            <button class="btn btn-dark" name="settings-button" type="submit">Save</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="d-grid gap-2">
+                            <a href="https://s113.labagh.pl/index.html?page=profile" class="btn btn-outline-dark" type="submit">Return</a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
+        <form action="https://s113.labagh.pl/backend/deleteuser.php" class="d-flex settings" method="POST">
+            <div class="container delacc">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <label for="delete">Delete your account</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="hidden" name="user-id", value="-1"></input>
+                        <button class="btn btn-outline-danger" name="user-remove" type="submit">Are you sure?</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#info").children().each(function(){
+        this.className += " plain-text";
+    });
+</script>

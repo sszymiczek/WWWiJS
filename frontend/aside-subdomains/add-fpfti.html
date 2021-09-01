@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header">
+        Add your FPftI
+    </div>
+    <div class="card-body">
+        <ul class="navbar-nav justify-content-end" >
+            <form class="row info" id="login-form" action="../../backend/addfpfti.php" method="POST" enctype="multipart/form-data">
+                <label class="form-label my-label">Title</label>
+                <input class="form-control" type="text" name="title" placeholder="Type FPftI title here..." aria-label="Title">
+                <label class="form-label my-label">Tags (begin with '#', separate by space)</label>
+                <input class="form-control" type="text" name="tags" placeholder="Type tags here...">
+                <label class="form-label my-label">Funny Picture from the Internet</label>
+                <input class="form-control" type="file" name="fpfti-image">
+                <div class="g-recaptcha" data-sitekey="6LcrreYUAAAAAGeERM9Etdv8wlh81RCSK0LXuwfX"></div>
+                <button class="btn btn-dark" type="submit" name="fpfti-submit">Add your own FPftI</button>
+            </form>
+        </ul>
+    </div>
+</div>
+<script>
+    $(".info").children().each(function(){
+        this.className += " plain-text";
+    });
+</script>
