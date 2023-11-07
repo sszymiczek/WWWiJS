@@ -1,4 +1,12 @@
-# WWWiJS-projekt
-Projekt wykonany na przedmiot WWW i Języki Skryptowe na IV semestrze studiów Teleinformatyka  
-Temat projektu: Strona internetowa do przeglądania memów  
-Autorzy: Michał Forystek, Szymon Szymiczek i Anita Jamroży
+# WWWiJS-project
+This project was created for the course "WWW and scripting languages" in the IV semester of the "Information and Communications Technology" faculty.
+
+Project subject: "Website for meme browsing."
+
+Project created by:
+
+Anita Jamroży https://github.com/ajamrozy
+
+Michał Forystek https://github.com/mforystek
+
+Szymon Szymiczek https://github.com/sszymiczek
